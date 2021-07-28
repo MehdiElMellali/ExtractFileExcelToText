@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Cores</a>.</p>
+    <div class="row  m-4">
+        <form class="form-row" action="/Home/ExtractFile" method="post" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            <input type="file" name="file" class="form-control" />
+            <br />
+            <button class="btn btn-danger" type="submit">Extract</button>
+        </form>
+    </div>
+
+
+    <div class="row m-4">
+        <form class="form-row" action="/Home/ExtractInformationByCelleAndRow" method="post" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            <input type="file" name="file" class="form-control" required />
+            <input type="text" name="cellNum" class="form-control" placeholder="cell" />
+            <input type="text" name="rowNum" class="form-control" placeholder="row" />
+            <input type="text" name="rowcellNum" class="form-control" placeholder="cell with row example : A2" />
+            <br />
+            <button class="btn btn-danger" type="submit">Extract</button>
+        </form>
+    </div>
+</div>
